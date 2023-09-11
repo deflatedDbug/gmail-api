@@ -1,21 +1,27 @@
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", function() {
     const deleteButton = document.getElementById('deleteButton');
 
-    deleteButton.addEventListener('click', async () => {
-        try {
-            const response = await fetch('/api/delete-emails', { 
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({
+    deleteButton.addEventListener('click', deleteEmails);
+});
 
-                });
-                const result = await response.json();
-                if (result.status === 'success') {
-                    
-                }
-            })
+async function deleteEmails() {
+    try {
+        const response = await fetch('http://localhost:3000/delete', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        });
+
+        if (response.ok) {
+            alert("Emails have been successfully deleted.");
         }
-    })
-})
+        else {
+            alert("Failed to delete emails.");
+        }
+    }
+     catch(error) {
+        console.error(error);
+        alert('An error has occurred');
+     }
+}

@@ -149,7 +149,7 @@ async function sleep(ms) {
   } while (nextPageToken);
 }
 
-authorize().then(deleteEmails).catch(console.error);
+// authorize().then(deleteEmails).catch(console.error);
 
 
 module.exports = {
