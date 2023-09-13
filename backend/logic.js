@@ -115,7 +115,7 @@ async function sleep(ms) {
       nextPageToken = listResponse.data.nextPageToken;
 
       if (messages && messages.length > 0) {
-        console.log(`Found ${messages.length} matching emails`);
+        console.log(`Found ${messages.length} matching email(s).`);
 
         const deletePromises = messages.map(message => 
           gmail.users.messages.delete({
@@ -126,11 +126,11 @@ async function sleep(ms) {
 
         await Promise.all(deletePromises);
 
-        console.log(`Deleted ${messages.length} messages.`);
-        totalDeleted += 50;
+        console.log(`Deleted ${messages.length} message(s).`);
+        totalDeleted = totalDeleted + 100;
       } else {
         console.log('No messages found.');
-        console.log(`Total messages deleted: ${totalDeleted}.`)
+        console.log(`Total message(s) deleted: ${totalDeleted}.`)
         break;
       }
 
