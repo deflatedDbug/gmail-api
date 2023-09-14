@@ -3,11 +3,27 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Email Deletion App</title>
+  <title>GMS</title>
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap"> 
+  
 </head>
 <body>
+  <div id="g_id_onload"
+  data-client_id="891423516179-cu98qp8j3s331qk78g9ud85qbsp9d94l.apps.googleusercontent.com"
+  data-callback="handleCredentialResponse">
+</div>
+<div class="custom-g-btn">
+  <div class="g_id_signin"
+  data-type="standard"
+  data-size="large"
+  data-theme="outline"
+  data-text="sign_in_with"
+  data-shape="rounded"
+  data-logo_alignment="center">
+  </div>
+</div>
+  <script src="https://accounts.google.com/gsi/client" async></script>
   <div class="container">
     <h1 class="header">Manage your Gmail</h1>
     <button id="dropdownMenuButton">Click here for options!</button>
@@ -17,6 +33,20 @@
       <a href="#" id="deleteEmails"> Delete Emails</a>
     </div>
   </div>
+  <script>
+    function handleCredentialResponse(response) {
+     // decodeJwtResponse() is a custom function defined by you
+     // to decode the credential response.
+     const responsePayload = decodeJwtResponse(response.credential);
+
+     console.log("ID: " + responsePayload.sub);
+     console.log('Full Name: ' + responsePayload.name);
+     console.log('Given Name: ' + responsePayload.given_name);
+     console.log('Family Name: ' + responsePayload.family_name);
+     console.log("Image URL: " + responsePayload.picture);
+     console.log("Email: " + responsePayload.email);
+  }
+  </script>
   <script src="script.js"></script>
 </body>
 </html>

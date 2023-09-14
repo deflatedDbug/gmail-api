@@ -9,8 +9,6 @@ body, h1, p {
   body {
     background-image: url('/frontend/assets/background-image.jpg');
     display: flex;
-    justify-content: center;
-    align-items: flex-start;
     height: 60vh;
     font-family: 'Dancing Script', cursive;
     font-size: large;
@@ -27,8 +25,9 @@ body, h1, p {
     box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
     padding: 20px;
     margin-top: 10%;
-    height: 250px;
-    width: 40%;
+    margin-left: 32%;
+    height: 225px;
+    width: 34%;
     text-align: center;
   }
   
@@ -86,5 +85,12 @@ body, h1, p {
   
   .error {
     color: #e74c3c;
+  }
+  
+  .g_id_signin {
+    max-width: 200px; /* or whatever size you prefer */
+    position: absolute;
+    top: 10px;
+    right: 10px;
   }
   

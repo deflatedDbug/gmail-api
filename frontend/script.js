@@ -10,8 +10,7 @@ document.addEventListener("DOMContentLoaded", function() {
     dropdownMenuButton.addEventListener('click', function() {
         dropdownMenu.style.display = dropdownMenu.style.display === 'block' ? 'none' : 'block';
     });
-})
-
+});
 
  async function deleteEmails() {
     try {
